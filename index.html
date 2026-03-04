@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site Premium com design sofisticado e interativo. Explore seções, carrosséis e formulários funcionais.">
+  <meta name="author" content="Seu Nome ou Empresa">
+  <title>Site</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Responsividade e SEO -->
+  <meta name="robots" content="index, follow">
+</head>
+
+<body>
+  <!-- Cabeçalho Fixo -->
+  <header>
+    <nav role="navigation" aria-label="Menu Principal">
+      <div class="logo" id="logo">
+        <a href="#" id="logo-link">
+          <!-- Logo com a imagem fornecida -->
+          <img src="/tmp/guest-pklrde/Downloads/png-clipart-computer-icons-web-development-globe-internet-globe-miscellaneous-emblem-thumbnail (1).png" alt="Logo" class="logo-img">
+        </a>
+      </div>
+      <ul>
+        <li><a href="#section1">Comprar</a></li>
+        <li><a href="#section2">Suas Encomenda</a></li>
+        <li><a href="#contact">Suporte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Seção 1 -->
+    <section id="section1" class="section parallax" style="background-image: url('https://via.placeholder.com/1600x900');">
+      <div class="section-content">
+        <h2>Seção 1: Design Sofisticado</h2>
+        <p>Explore um design sofisticado com uma imagem de fundo impressionante. Saiba mais sobre nossos produtos e serviços.</p>
+        <button class="btn" id="btn-modal">Saiba Mais</button>
+      </div>
+    </section>
+
+    <!-- Seção 2 - Carrossel -->
+    <section id="section2" class="section" style="background-color: #222;">
+      <div class="section-content">
+        <h2>Seção 2 - Carrossel de Imagens</h2>
+        <p>Veja o carrossel de imagens para mais detalhes sobre nossos serviços.</p>
+
+        <div class="carousel">
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400" alt="Imagem 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400" alt="Imagem 2">
+          </div>
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/800x400" alt="Imagem 3">
+          </div>
+        </div>
+        <button class="btn">Saiba Mais</button>
+      </div>
+    </section>
+
+    <!-- Seção 3 -->
+    <section id="section3" class="section" style="background-image: url('https://via.placeholder.com/1600x900');">
+      <div class="section-content">
+        <h2>Seção 3: Mais Detalhes</h2>
+        <p>Confira mais detalhes sobre o nosso trabalho, com foco em inovação e qualidade.</p>
+        <button class="btn">Saiba Mais</button>
+      </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contact" class="section" style="background-color: #f7f7f7;">
+      <div class="section-content">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações ou dúvidas. Estamos à disposição para ajudá-lo.</p>
+
+        <form id="contact-form" action="mailto:seu-email@dominio.com" method="POST">
+          <label for="name">Seu Nome</label>
+          <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+          <label for="email">Seu Email</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+          <label for="message">Sua Mensagem</label>
+          <textarea id="message" name="message" placeholder="Digite sua mensagem" required></textarea>
+
+          <button type="submit" class="btn">Enviar</button>
+        </form>
+
+        <div id="response-message" class="response-message"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal (caixa de diálogo) -->
+  <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-content">
+      <button id="close-modal" class="close" aria-label="Fechar modal">&times;</button>
+      <h2 id="modal-title">Detalhes</h2>
+      <p>Conteúdo adicional sobre o seu projeto ou serviço. Você pode adicionar mais informações aqui, como imagens, vídeos, etc.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <script>
+    // Função para recarregar a página ao clicar na logo
+    const logoLink = document.getElementById("logo-link");
+    logoLink.addEventListener("click", function(event) {
+      event.preventDefault(); // Impede a ação padrão de navegação
+      location.reload(); // Recarrega a página (simula o F5)
+    });
+
+    // Função para esconder e reduzir a logo ao rolar a página
+    const logo = document.getElementById("logo");
+
+    window.addEventListener("scroll", function() {
+      let scrollPosition = window.scrollY;
+      let logoSize = Math.max(150 - scrollPosition / 5, 40); // A logo vai diminuir conforme você rola
+      logo.style.transform = `translateY(${scrollPosition / 2}px) scale(${logoSize / 150})`; // Desloca e diminui
+      logo.style.opacity = 1 - scrollPosition / 500; // A logo vai desaparecendo com o rolar
+    });
+  </script>
+</body>
+
+</html>
